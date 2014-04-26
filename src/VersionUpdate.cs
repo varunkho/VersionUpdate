@@ -23,7 +23,7 @@ namespace VersionUpdate
 
             string content = File.ReadAllText(AssemblyInfoFilePath, Encoding.UTF8);
 
-            if (!this.SkipAssemblyInformationalVersion)
+            if (!this.IgnoreAssemblyInformationalVersion)
             {
                 content = Regex.Replace(content,
                 AIV_PATTERN,
@@ -41,7 +41,7 @@ namespace VersionUpdate
                 }, RegexOptions.IgnoreCase);
             }
 
-            if (!this.SkipAssemblyVersion)
+            if (!this.IgnoreAssemblyVersion)
             {
                 content = Regex.Replace(content,
             AV_PATTERN,
@@ -58,7 +58,7 @@ namespace VersionUpdate
             }, RegexOptions.IgnoreCase);
             }
 
-            if (!this.SkipAssemblyFileVersion)
+            if (!this.IgnoreAssemblyFileVersion)
             {
                 content = Regex.Replace(content,
     AFV_PATTERN,
@@ -90,27 +90,27 @@ namespace VersionUpdate
         public string AssemblyInfoFilePath { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to skip update of AssemblyVersion attribute. The default is false.
+        /// Gets or sets a value indicating whether to ignore update of AssemblyVersion attribute. The default is false.
         /// </summary>
         /// <value>
         /// <c>true</c> if AssemblyVersion attribute shouldn't be updated; otherwise, <c>false</c>.
         /// </value>
-        public bool SkipAssemblyVersion { get; set; }
+        public bool IgnoreAssemblyVersion { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to skip update of AssemblyInformationalVersion attribute. The default is false.
+        /// Gets or sets a value indicating whether to ignore update of AssemblyInformationalVersion attribute. The default is false.
         /// </summary>
         /// <value>
         /// <c>true</c> if AssemblyInformationalVersion attribute shouldn't be updated; otherwise, <c>false</c>.
         /// </value>
-        public bool SkipAssemblyInformationalVersion { get; set; }
+        public bool IgnoreAssemblyInformationalVersion { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether to skip update of AssemblyFileVersion attribute. The default is false.
+        /// Gets or sets a value indicating whether to ignore update of AssemblyFileVersion attribute. The default is false.
         /// </summary>
         /// <value>
         /// <c>true</c> if AssemblyFileVersion attribute shouldn't be updated; otherwise, <c>false</c>.
         /// </value>
-        public bool SkipAssemblyFileVersion { get; set; }
+        public bool IgnoreAssemblyFileVersion { get; set; }
     }
 }
